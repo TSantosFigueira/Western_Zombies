@@ -17,10 +17,14 @@ public class ScoreManager : MonoBehaviour {
     //! Retrieves leaderboard, if it does not exist all values are set with standard values
 	void Start () {
         generalScore = new List<PlayerScore>(leaderboardSize);
+
         for (int i = 0; i < leaderboardSize; i++)
         {
-            generalScore[i].playerName = PlayerPrefs.GetString("name" + i, "...");
-            generalScore[i].score = PlayerPrefs.GetInt("score" + i, 000);
+            PlayerScore player = new PlayerScore();
+            player.playerName = PlayerPrefs.GetString("name " + i.ToString(), "..."); ;
+            player.score = PlayerPrefs.GetInt("score" + i, 000); ;
+
+            generalScore.Add(player);
         }
 	}
 
@@ -47,17 +51,17 @@ public class ScoreManager : MonoBehaviour {
     {
         for (int i = 0; i < generalScore.Count; i++)
         {
-            PlayerPrefs.SetString("name" + i, generalScore[i].playerName);
+         //   PlayerPrefs.SetString("name" + i, generalScore[i].playerName);
             PlayerPrefs.SetInt("score" + i, generalScore[i].score);
         }
         PlayerPrefs.Save();
     }
 
-    void DisplayLeaderboard()
+    public void DisplayLeaderboard()
     {
         for (int i = 0; i < generalScore.Count; i++)
         {
-            playerNames[i].text = generalScore[i].playerName;
+          //  playerNames[i].text = generalScore[i].playerName;
             playerScores[i].text = generalScore[i].score.ToString();
         }
     }

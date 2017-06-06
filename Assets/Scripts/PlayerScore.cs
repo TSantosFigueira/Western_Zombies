@@ -3,16 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScore : IComparer<PlayerScore> {
+public class PlayerScore : IComparable<PlayerScore> {
 
     public string playerName;
     public int score;
 
     public static int localScore;
 
-    public int Compare(PlayerScore x, PlayerScore y)
+    public int CompareTo(PlayerScore other)
     {
-        return this.score.CompareTo(y.score);
+        return score.CompareTo(other.score);
     }
-
 }
