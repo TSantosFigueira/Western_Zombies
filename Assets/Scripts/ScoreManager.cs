@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour {
 
     //! Retrieves leaderboard, if it does not exist all values are set with standard values
 	void Start () {
+        PlayerScore.localScore = 0;
+
         generalScore = new List<PlayerScore>(leaderboardSize);
 
         for (int i = 0; i < leaderboardSize; i++)

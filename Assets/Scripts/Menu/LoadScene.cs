@@ -10,13 +10,11 @@ public class LoadScene : MonoBehaviour {
 
     public void goToScene()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(cenaParaCarregar);
     }
 
     public void goToMainMenu()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(menuPrincipal);
     }
 }

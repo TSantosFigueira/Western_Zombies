@@ -28,6 +28,7 @@ public class GameOver : MonoBehaviour {
             FadeIn();
             PauseManager.isPaused = true;
             gameObject.transform.position = new Vector2(-10, -10);
+            ObjectPoolingManager.Instance.DestroyPool();
         }
     }
 

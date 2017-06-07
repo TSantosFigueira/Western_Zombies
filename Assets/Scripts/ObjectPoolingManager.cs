@@ -12,7 +12,7 @@ public class ObjectPoolingManager
     //! Constructor for the class, ensures the object pool exists
     private ObjectPoolingManager()
     {
-        this.objectPools = new Dictionary<string, ObjectsPool>();
+        objectPools = new Dictionary<string, ObjectsPool>();
     }
 
     //! Property for retrieving singleton
@@ -37,22 +37,28 @@ public class ObjectPoolingManager
     //! Creates new object pool for the referenced object
     public bool CreatePool(GameObject objectToPool, int initialPoolSize, int maxPoolSize, Transform transform)
     {
-        if (ObjectPoolingManager.Instance.objectPools.ContainsKey(objectToPool.name))
+        if (Instance.objectPools.ContainsKey(objectToPool.name))
         {
             return false;
         }
         else
         {
             ObjectsPool nPool = new ObjectsPool(objectToPool, initialPoolSize, maxPoolSize, transform);
-            ObjectPoolingManager.Instance.objectPools.Add(objectToPool.name, nPool);
+            Instance.objectPools.Add(objectToPool.name, nPool);
             return true;
         }
+    }
+
+
+    public void DestroyPool()
+    {
+        instance = null;
     }
 
     //! Retrieves object from the pool
     public GameObject GetObject(string objName)
     {
-        return ObjectPoolingManager.Instance.objectPools[objName].GetObject();
+        return Instance.objectPools[objName].GetObject();
     }
 }
 

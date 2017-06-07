@@ -37,7 +37,7 @@ public class ObjectsPool
             objectsPool.Add(auxiliaryObject);
         }
 
-        this.originalObject = objectToPool;
+        originalObject = objectToPool;
         this.initialPoolSize = initialPoolSize;
         this.maxPoolSize = maxPoolSize;
         this.parent = parent;

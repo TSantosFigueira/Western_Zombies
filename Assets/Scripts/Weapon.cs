@@ -12,7 +12,7 @@ public class Weapon : MonoBehaviour {
     [Range(1, 20)]
     public int velocity;           //!< Bullet velocity at start
 
-    [Range(1, 5)]
+    [Range(0, 5)]
     public float delayTime;        //<! Time between every shot
     private float timer;           //<! Internal timer controller
 

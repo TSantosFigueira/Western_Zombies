@@ -11,17 +11,4 @@ public class InterfacePool : MonoBehaviour {
 	void Start () {
         ObjectPoolingManager.Instance.CreatePool(poolObject, poolSize, maxPoolSize, transform);
 	}
-	
-    // Retrieve object from pool example
-	void Update () {
-        //if (Input.GetButtonDown("Jump"))
-        //{
-        //    GameObject bullet = ObjectPoolingManager.Instance.GetObject("Cube");
-        //    bullet.transform.position = transform.position;
-        //    bullet.transform.rotation = Quaternion.identity;
-        //    bullet.SetActive(true);
-        //}
-	}
-
-
 }
