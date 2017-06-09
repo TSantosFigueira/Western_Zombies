@@ -5,12 +5,11 @@ using UnityEngine;
 //! Responsible for moving the enemy towards the player
 public class EnemyMovement : MonoBehaviour {
 
-    [Range(0, 2)]
-    public float movementSpeed = .1f; // Enemy initial velocity
-
+    private float movementSpeed; 
     private Transform player;
 
 	void Start () {
+        movementSpeed = Random.Range(1.5f, 2.5f);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();       
 	}
 	

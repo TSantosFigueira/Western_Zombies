@@ -71,5 +71,9 @@ public class ScoreManager : MonoBehaviour {
     private void Update()
     {
         currentScore.text = PlayerScore.localScore.ToString();
+        if (PauseManager.isPaused)
+        {
+            currentScore.text = "";
+        }
     }
 }
